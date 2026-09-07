@@ -1,5 +1,5 @@
 import "@/lib/utils/suppressConsole";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 import { ReactQueryProvider } from "@/lib/react-query/provider";
@@ -67,6 +67,12 @@ export const metadata: Metadata = {
     description: "Get unlimited access to JOJO Gold. Enjoy exclusive content, no video ads, watch on up to 4 devices, and stream in Full HD 1080p.",
     images: ["https://cdn.thesupercms.com/app_media/sub/Watch-on-upto-4-Devices.png"],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  interactiveWidget: "resizes-content",
 };
 
 export default function RootLayout({

@@ -9,6 +9,7 @@ import { LoginIdentifierType, LoginVia } from "@/enums/ui.enum";
 import { REGEX } from "@/lib/constants/regex";
 import { appConfig } from "@/lib/config/app.config";
 import { CoverflowCarousel } from "@/components/CoverflowCarousel";
+import { useKeyboardScrollFix } from "@/hooks/useKeyboardScrollFix";
 
 /** Renders footer note text, turning "Terms of Use" and "Privacy Statement" into gold clickable links. */
 const renderFooterWithLinks = (text: string) => {
@@ -104,6 +105,9 @@ export const FreeTrialForm: React.FC<FreeTrialFormProps> = ({
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
+
+  useKeyboardScrollFix(inputRef);
+
   const [selectedCountry, setSelectedCountry] = useState<Country>({
     countryCode: appConfig.DEFAULT_COUNTRY_NAME,
     phoneCode: appConfig.DEFAULT_MOBILE_NUMBER_CODE,
