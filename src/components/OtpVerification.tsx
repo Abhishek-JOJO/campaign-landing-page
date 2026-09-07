@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useKeyboardScrollFix } from "@/hooks/useKeyboardScrollFix";
 
 interface OtpVerificationProps {
   contactInfo: string;
@@ -43,6 +44,8 @@ export const OtpVerification: React.FC<OtpVerificationProps> = ({
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
+
+  useKeyboardScrollFix(inputRef);
 
   const hasSubmittedRef = useRef(false);
 
